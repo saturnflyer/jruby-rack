@@ -38,6 +38,7 @@ module JRuby
 
     class WebInfLayout < AppLayout
       def initialize(context)
+        $LOAD_PATH << 'META-INF/jruby.home/lib/ruby/site_ruby/1.8'
         super
         $0 = File.join(app_path, "web.xml")
       end

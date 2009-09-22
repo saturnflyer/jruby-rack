@@ -12,6 +12,7 @@ module JRuby::Rack
     end
 
     def boot!
+      $LOAD_PATH << 'META-INF/jruby.home/lib/ruby/site_ruby/1.8'
       @layout ||= layout_class.new(@rack_context)
       ENV['GEM_PATH'] = @layout.gem_path
       @layout.change_working_directory if @layout.respond_to?(:change_working_directory)
